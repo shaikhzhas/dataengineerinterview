@@ -16,4 +16,4 @@ FROM
 ORDER BY
   start_time
 ```
-![alt text](https://github.com/shaikhzhas/dataengineerinterview/images/w_q1.png "Window Q1")
+![alt text](https://github.com/shaikhzhas/dataengineerinterview/tree/main/images/w_q1.png "Window Q1")
