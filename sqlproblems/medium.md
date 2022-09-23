@@ -26,10 +26,7 @@ WITH t1 AS
           salary,
           rank() over(PARTITION BY department
                       ORDER BY salary DESC) AS rank_sal
-   FROM employee
-   GROUP BY first_name,
-            department,
-            salary)
+   FROM employee)
 SELECT first_name,
        department,
        salary
