@@ -22,6 +22,7 @@ The `ORDER` and `PARTITION` define what is referred to as the "window"—the ord
 - [Query 13](#13) NTILE
 - [Query 14](#14) LAG and LEAD
 - [Query 15](#15) Window Alias
+- [Query 16](#16) ROWS BETWEEN
 
 
 #### <a name="1"></a>Query 1
@@ -381,3 +382,22 @@ WINDOW ntile_window AS
 ORDER BY start_terminal, duration_seconds
 ```
 The `WINDOW` clause, if included, should always come after the `WHERE` clause.
+
+#### <a name="16"></a>Query 16
+We add a definition for our window size:` ROWS BETWEEN 5 PRECEDING AND 1 PRECEDING`. This clause is essentially saying, "look back across the previous 5 duration_seconds (not including the current duration_second) and take the maximum value."
+```sql
+SELECT
+  start_time,
+  start_terminal,
+  duration_seconds,
+  MAX(duration_seconds) OVER(
+    ORDER BY
+      start_time ROWS BETWEEN 5 PRECEDING
+      AND 1 PRECEDING
+  ) AS max_duration
+FROM
+  tutorial.dc_bikeshare_q1_2012
+WHERE
+  start_time < '2012-01-08'
+```
+![alt text](../../images/w_q16.png "Window Q16")
