@@ -11,6 +11,11 @@ The `ORDER` and `PARTITION` define what is referred to as the "window"—the ord
 ### [Query 2](#2)
 ### [Query 3](#3)
 ### [Query 4](#4)
+### [Query 5](#5)
+### [Query 6](#6)
+### [Query 7](#7)
+### [Query 8](#8)
+### [Query 9](#9)
 
 
 
@@ -87,3 +92,67 @@ ORDER BY
   4 DESC
 ```
 ![alt text](../../images/w_q4.png "Window Q4")
+
+### <a name="5"></a>Query 5
+```sql
+SELECT
+  start_terminal,
+  duration_seconds,
+  SUM(duration_seconds) OVER (PARTITION BY start_terminal) AS running_total,
+  COUNT(duration_seconds) OVER (PARTITION BY start_terminal) AS running_count,
+  AVG(duration_seconds) OVER (PARTITION BY start_terminal) AS running_avg
+FROM
+  tutorial.dc_bikeshare_q1_2012
+WHERE
+  start_time < '2012-01-08'
+```
+![alt text](../../images/w_q5.png "Window Q5")
+
+### <a name="6"></a>Query 6
+```sql
+SELECT
+  start_terminal,
+  start_time,
+  duration_seconds,
+  SUM(duration_seconds) OVER (
+    PARTITION BY start_terminal
+    ORDER BY
+      start_time
+  ) AS running_total,
+  COUNT(duration_seconds) OVER (
+    PARTITION BY start_terminal
+    ORDER BY
+      start_time
+  ) AS running_count,
+  AVG(duration_seconds) OVER (
+    PARTITION BY start_terminal
+    ORDER BY
+      start_time
+  ) AS running_avg
+FROM
+  tutorial.dc_bikeshare_q1_2012
+WHERE
+  start_time < '2012-01-08'
+ORDER BY
+  1,
+  2
+```
+![alt text](../../images/w_q6.png "Window Q6")
+
+### <a name="7"></a>Query 7
+Write a query that shows a running total of the duration of bike rides (similar to the last example), but grouped by end_terminal, and with ride duration sorted in descending order
+```sql
+SELECT
+  end_terminal,
+  duration_seconds,
+  SUM(duration_seconds) OVER (
+    PARTITION BY end_terminal
+    ORDER BY
+      duration_seconds DESC
+  ) AS running_total
+FROM
+  tutorial.dc_bikeshare_q1_2012
+WHERE
+  start_time < '2012-01-08'
+```
+![alt text](../../images/w_q7.png "Window Q7")
