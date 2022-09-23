@@ -22,9 +22,6 @@ The `ORDER` and `PARTITION` define what is referred to as the "window"—the ord
 - [Query 13](#13) NTILE
 - [Query 14](#14) LAG and LEAD
 - [Query 15](#15) Window Alias
-- [Query 16](#16)
-- [Query 17](#17)
-- [Query 18](#18)
 
 
 #### <a name="1"></a>Query 1
