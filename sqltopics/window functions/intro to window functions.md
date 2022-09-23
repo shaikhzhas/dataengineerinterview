@@ -7,15 +7,15 @@ The `ORDER` and `PARTITION` define what is referred to as the "window"—the ord
 
 **Note**: You can't use window functions and standard aggregations in the same query. More specifically, you can't include window functions in a `GROUP BY` clause.
 
-[Query 1](#1)
-[Query 2](#2)
-[Query 3](#3)
-[Query 4](#4)
-[Query 5](#5)
-[Query 6](#6)
-[Query 7](#7)
-[Query 8](#8)
-[Query 9](#9)
+- [Query 1](#1)
+- [Query 2](#2)
+- [Query 3](#3)
+- [Query 4](#4)
+- [Query 5](#5)
+- [Query 6](#6)
+- [Query 7](#7)
+- [Query 8](#8)
+- [Query 9](#9)
 
 
 
