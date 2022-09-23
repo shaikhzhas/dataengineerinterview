@@ -4,6 +4,10 @@
 
 #### [Problem 1](#1)
 #### [Problem 2](#2)
+#### [Problem 3](#3)
+
+
+
 
 #### <a name="1"></a>Problem 1
 
@@ -52,4 +56,40 @@ SELECT UNNEST(STRING_TO_ARRAY(categories, ';')) AS category,
 FROM yelp_business
 GROUP BY 1
 ORDER BY 2 DESC
+```
+
+####  <a name="3"></a>Problem 3
+
+Calculate each user's average session time. A session is defined as the time difference between a page_load and page_exit. For simplicity, assume a user has only 1 session per day and if there are multiple of the same events on that day, consider only the latest page_load and earliest page_exit. Output the user_id and their average session time.
+
+**facebook_web_log** table
+- user_id: int
+- timestamp: datetime
+- action: varchar
+
+Solutions:
+```sql
+WITH EXIT AS
+  (SELECT user_id ,
+          date(timestamp) AS DAY ,
+          min(timestamp) AS EXIT
+   FROM facebook_web_log
+   WHERE action = 'page_exit'
+   GROUP BY 1,
+            2) , LOAD AS
+  (SELECT user_id ,
+          date(timestamp) AS DAY ,
+          max(timestamp) AS LOAD
+   FROM facebook_web_log
+   WHERE action = 'page_load'
+   GROUP BY 1,
+            2)
+SELECT exit.user_id ,
+       EXIT ,
+       LOAD ,
+       EXIT-LOAD
+FROM EXIT
+LEFT JOIN LOAD ON exit.user_id = load.user_id
+AND exit.day = load.day
+GROUP BY 1
 ```
