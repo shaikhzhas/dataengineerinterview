@@ -2,7 +2,7 @@
 
 ## SQL Medium Problems
 
-####<a name="1"></a>Problem 1
+#### <a name="1"></a>Problem 1
 
 [Problem 1](#1)
 
