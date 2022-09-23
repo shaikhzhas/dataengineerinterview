@@ -2,78 +2,7 @@
 
 ## SQL Medium Problems
 
-[Problem 1](#1)
-
-
-
-
-
-
-
-wewe
-
-
-
-we
-w
-
-
-
-
-
-
-
-
-we
-
-
-
-
-
-
-
-
-
-
-we
-
-
-
-
-
-
-
-
-wewe
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#### [Problem 1](#1)
 
 
 #### <a name="1"></a>Problem 1
