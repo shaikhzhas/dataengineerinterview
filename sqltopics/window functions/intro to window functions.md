@@ -7,19 +7,19 @@ The `ORDER` and `PARTITION` define what is referred to as the "window"—the ord
 
 **Note**: You can't use window functions and standard aggregations in the same query. More specifically, you can't include window functions in a `GROUP BY` clause.
 
-### [Query 1](#1)
-### [Query 2](#2)
-### [Query 3](#3)
-### [Query 4](#4)
-### [Query 5](#5)
-### [Query 6](#6)
-### [Query 7](#7)
-### [Query 8](#8)
-### [Query 9](#9)
+[Query 1](#1)
+[Query 2](#2)
+[Query 3](#3)
+[Query 4](#4)
+[Query 5](#5)
+[Query 6](#6)
+[Query 7](#7)
+[Query 8](#8)
+[Query 9](#9)
 
 
 
-### <a name="1"></a>Query 1
+#### <a name="1"></a>Query 1
 ```sql
 SELECT
   start_time,
@@ -35,7 +35,7 @@ ORDER BY
 ```
 ![alt text](../../images/w_q1.png "Window Q1")
 
-### <a name="2"></a>Query 2
+#### <a name="2"></a>Query 2
 
 ```sql
 SELECT
@@ -57,7 +57,7 @@ ORDER BY
 ```
 ![alt text](../../images/w_q2.png "Window Q2")
 
-### <a name="3"></a>Query 3
+#### <a name="3"></a>Query 3
 ```sql
 SELECT
   start_terminal,
@@ -70,7 +70,7 @@ WHERE
 ```
 ![alt text](../../images/w_q3.png "Window Q3")
 
-### <a name="4"></a>Query 4
+#### <a name="4"></a>Query 4
 Write a query modification of the above example query that shows the duration of each
 ride as a percentage of the total time accrued by riders from each start_terminal
 ```sql
@@ -93,7 +93,7 @@ ORDER BY
 ```
 ![alt text](../../images/w_q4.png "Window Q4")
 
-### <a name="5"></a>Query 5
+#### <a name="5"></a>Query 5
 ```sql
 SELECT
   start_terminal,
@@ -108,7 +108,7 @@ WHERE
 ```
 ![alt text](../../images/w_q5.png "Window Q5")
 
-### <a name="6"></a>Query 6
+#### <a name="6"></a>Query 6
 ```sql
 SELECT
   start_terminal,
@@ -139,7 +139,7 @@ ORDER BY
 ```
 ![alt text](../../images/w_q6.png "Window Q6")
 
-### <a name="7"></a>Query 7
+#### <a name="7"></a>Query 7
 Write a query that shows a running total of the duration of bike rides (similar to the last example), but grouped by end_terminal, and with ride duration sorted in descending order
 ```sql
 SELECT
