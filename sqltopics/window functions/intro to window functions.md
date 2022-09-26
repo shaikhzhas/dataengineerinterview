@@ -23,6 +23,8 @@ The `ORDER` and `PARTITION` define what is referred to as the "window"—the ord
 - [Query 14](#14) LAG and LEAD
 - [Query 15](#15) Window Alias
 - [Query 16](#16) ROWS BETWEEN
+- [Query 17](#17) Cume_dist & Percent_rank
+
 
 
 #### <a name="1"></a>Query 1
@@ -219,6 +221,21 @@ WHERE
 ```
 ![alt text](../../images/w_q10.png "Window Q10")
 
+These three functions will number each row. Using row_number gives a result that must always be unique. Each row is assigned a different value even if they are equal
+
+The easiest way to explain rank and dense_rank is to imagine ranking the runners of a race. Consider: If 2 runners finish in equal 3rd, is the next runner's place 4th (dense_rank) or 5th (rank).
+```sql
+SELECT name,
+       TIME,
+       row_number() OVER ( ORDER BY TIME),
+       rank() OVER (ORDER BY TIME),
+       dense_rank() OVER (ORDER BY TIME)
+FROM runners
+ORDER BY TIME
+```
+![alt text](../../images/w_q10_2.png "Window Q10_2")
+
+
 #### <a name="11"></a>Query 11
 You can also use `DENSE_RANK()` instead of `RANK()` depending on your application. Imagine a situation in which three entries have the same value. Using either command, they will all get the same rank. For the sake of this example, let's say it's "2." Here's how the two commands would evaluate the next results differently:
 
@@ -401,3 +418,20 @@ WHERE
   start_time < '2012-01-08'
 ```
 ![alt text](../../images/w_q16.png "Window Q16")
+
+#### <a name="17"></a>Query 17
+These 2 functions calculate the relative rank of a group of rows
+
+- `percent_rank` returns a number from 1 to 0. The highest being 1 and the lowest 0.
+- `cume_dist` will return a number from 1 towards 0 but never 0.
+Think of it this way: If there are 4 different values do you count down from 1 in steps of 0.25 (`percent_rank`) or in steps of 0.2 ensuring that we never hit 0 (`cume_dist`)
+
+```sql
+SELECT name,
+       TIME,
+       percent_rank() OVER (ORDER BY TIME),
+       cume_dist() OVER (ORDER BY TIME)
+FROM runners
+ORDER BY TIME
+```
+![alt text](../../images/w_q17.png "Window Q17")
