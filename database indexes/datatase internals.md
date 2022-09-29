@@ -33,6 +33,16 @@ Each grey box means block
 For this query, row-oriented database is slow
 ![alt text](../images/di17.png "")
 ![alt text](../images/di18.png "")
+![alt text](../images/di19.png "")
+![alt text](../images/di20.png "")
+![alt text](../images/di21.png "")
+![alt text](../images/di22.png "")
+![alt text](../images/di23.png "")
+![alt text](../images/di24.png "")
+![alt text](../images/di25.png "")
+![alt text](../images/di26.png "")
+
+
 
 
 
