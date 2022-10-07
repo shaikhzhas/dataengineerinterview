@@ -8,3 +8,7 @@
 - [14 SQL Server Indexing Questions You Were Too Shy To Ask](https://www.red-gate.com/simple-talk/databases/sql-server/performance-sql-server/14-sql-server-indexing-questions-you-were-too-shy-to-ask/)
 - [SQL Server and Azure SQL index architecture and design guide](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide?view=sql-server-ver15)
 - [SQL Server Indexes](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/indexes?view=sql-server-ver15)
+- [Columnstore indexes: Overview](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-overview?view=sql-server-ver15)
+- [What are Columnstore Indexes?](https://www.red-gate.com/simple-talk/databases/sql-server/t-sql-programming-sql-server/what-are-columnstore-indexes/)
+- [Introduction to PostgreSQL Columnstore Indexing](https://swarm64.com/post/postgresql-columnstore-index-intro/)
+ -[Columnar database: a smart choice for data warehouses](https://www.stitchdata.com/columnardatabase/)
